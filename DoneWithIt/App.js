@@ -1,26 +1,41 @@
 import React from "react";
 import {
+  Dimensions,
   StyleSheet,
   SafeAreaView,
   Button,
   Alert,
   StatusBar,
   Platform,
+  View,
 } from "react-native";
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 
 export default function App() {
+  const { landscape } = useDeviceOrientation();
+  console.log("useDimensions ===>", useDimensions());
+  console.log("use Dimensions.get ===>", Dimensions.get("screen"));
   console.log("app executed");
   console.log(require("./assets/icon.png"));
   const handlePress = () => console.log("Text pressed");
 
   return (
     <SafeAreaView style={styles.container}>
-      <Button
-        color="orange"
-        title="Click me"
-        onPress={() =>
-          Alert.prompt("My title", "My message", (text) => console.log(text))
-        }
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: "100%",
+          height: landscape ? "100%" : "30%",
+        }}
+        // <Button
+        //   color="orange"
+        //   title="Click me"
+        //   onPress={() =>
+        //     Alert.prompt("My title", "My message", (text) => console.log(text))
+        //   }
       />
     </SafeAreaView>
   );
