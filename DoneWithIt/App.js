@@ -1,72 +1,42 @@
 import React from "react";
-import {
-  Dimensions,
-  StyleSheet,
-  SafeAreaView,
-  Button,
-  Alert,
-  StatusBar,
-  Platform,
-  View,
-} from "react-native";
-import {
-  useDimensions,
-  useDeviceOrientation,
-} from "@react-native-community/hooks";
+import { View } from "react-native";
 
 export default function App() {
-  const { landscape } = useDeviceOrientation();
-  console.log("useDimensions ===>", useDimensions());
-  console.log("use Dimensions.get ===>", Dimensions.get("screen"));
-  console.log("app executed");
-  console.log(require("./assets/icon.png"));
-  const handlePress = () => console.log("Text pressed");
-
   return (
-    <SafeAreaView style={styles.container}>
+    <View
+      style={{
+        backgroundColor: "#fff",
+        flex: 1,
+        flexDirection: "row", // sets the main axis to be horizontal
+        justifyContent: "center", // centers the content based on the main axis - horizontal
+        alignItems: "center", // sets content based on the secondary axis
+        flexWrap: "wrap",
+        alignContent: "center", // determines the alignment of entire content - only works if you have wrapping
+      }}
+    >
       <View
         style={{
           backgroundColor: "dodgerblue",
-          width: "100%",
-          height: landscape ? "100%" : "30%",
+          flexBasis: 100, // maps to width or height
+          flexGrow: 1, // same as setting flex property
+          width: 100,
+          height: 100,
         }}
-        // <Button
-        //   color="orange"
-        //   title="Click me"
-        //   onPress={() =>
-        //     Alert.prompt("My title", "My message", (text) => console.log(text))
-        //   }
       />
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
-
-// Options within an alert
-
-{
-  /* <Text numberOfLines={1} onPress={handlePress}>Hello React Native</Text>
-      <TouchableNativeFeedback onPress={() => console.log('image tapped')}>
-      <View style={{ width: 200, height: 70, backgroundColor: 'dodgerblue' }}></View>
-      </TouchableNativeFeedback>
-      <StatusBar style="auto" /> */
-}
-
-{
-  /* <Image 
-        blurRadius={1}
-        fadeDuration={1000}
-        source={{ 
-          width: 200,
-          height: 300,
-          uri: 'https://picsum.photos/200/300'
+      <View
+        style={{
+          backgroundColor: "gold",
+          width: 100,
+          height: 100,
         }}
-      /> */
+      />
+      <View
+        style={{
+          backgroundColor: "tomato",
+          width: 100,
+          height: 100,
+        }}
+      />
+    </View>
+  );
 }
