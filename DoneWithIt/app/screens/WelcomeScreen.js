@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import ViewLoginScreen from "./login";
 // import background from "../assets/background.jpg";
 
 function WelcomeScreen(props) {
@@ -16,8 +17,11 @@ function WelcomeScreen(props) {
         <Text>Sell What You Don't Need</Text>
       </View>
 
-      <View style={styles.loginButton}></View>
-      <View style={styles.registerButton}></View>
+      {/* <View style={styles.loginButton}></View> */}
+      <ViewLoginScreen></ViewLoginScreen>
+      {/* <View style={styles.registerButton}>
+        <Text>Register</Text>
+      </View> */}
     </ImageBackground>
   );
 }
@@ -45,8 +49,10 @@ const styles = StyleSheet.create({
   },
   registerButton: {
     width: "100%",
-    height: 70,
+    height: 40,
     backgroundColor: "#4ecdc4",
+    borderRadius: 30,
+    bottom: 25,
   },
 });
 
